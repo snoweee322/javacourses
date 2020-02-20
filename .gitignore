@@ -1,9 +1,14 @@
-.gradle
 .gradlein
 .build
-.gradlew
 .idea
 .swp
 build
 .class
+.bat
+gradlew.bat
+gradle
+.gradle
+settings.gradle
+build.gradle
+gradlew
 
