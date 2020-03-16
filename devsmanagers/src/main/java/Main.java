@@ -1,8 +1,17 @@
 import java.io.*;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
+    private static User generateObj() {
+        String[] fieldName = {"Alex", "Joshua", "Paul", "Grisha", "Richard", "Emma", "Olivia", "Isabella",
+                "Mia", "Matthew"};
+        String[] fieldEmail = {"A@abc.com", "B@abc.com", "C@abc.com", "D@abc.com", "E@abc.com", "F@abc.com"};
+        String[] fieldLang = {"C/C++", "Java", "JavaScript", "R", "Ruby", "Python", "C#", "Go", "Swift",
+                "Prolog", "Erlang", "Lisp", "Fortran", "Delphi", "Rust", "Lua", "Perl", "Scala", "PHP", "Haskell"};
+        Random random = new Random();
+        return new Developer(fieldName[random.nextInt(fieldName.length)],
+                fieldEmail[random.nextInt(fieldEmail.length)], fieldLang[random.nextInt(fieldLang.length)]);
+    }
     private static void generate() throws IOException {
         String[] fieldName = {"Alex", "Joshua", "Paul", "Grisha", "Richard", "Emma", "Olivia", "Isabella",
                 "Mia", "Matthew"};
@@ -46,8 +55,28 @@ public class Main {
         String string2 = manager.fromCSV(number);
         String str1[] = string1.split(";");
         String str2[] = string2.split(";");
-        System.out.println("Number: " + number + " // Record: " + Arrays.toString(str1));
-        System.out.println("Number: " + number + " // Record: " + Arrays.toString(str2));
+        //System.out.println("Number: " + number + " // Record: " + Arrays.toString(str1));
+        //System.out.println("Number: " + number + " // Record: " + Arrays.toString(str2));
+
+
+        List<User> arrayList = new ArrayList<User>(); // сравнение скоростей добавления
+        List<User> linkedList = new LinkedList<User>();
+
+        Long startTime = System.nanoTime();
+        for(int i = 0; i < 10000000; i++) { // 10 млн элементов (добавление + генерация)
+            arrayList.add(generateObj());
+        }
+        Long endTime = System.nanoTime();
+        Double elapsedTime = ((double)endTime - startTime)/1000000000;
+        System.out.println("Elapsed time for ArrayList: " + elapsedTime + " seconds.");
+
+        startTime = System.nanoTime();
+        for(int i = 0; i < 10000000; i++) { // 10 млн элементов (добавление + генерация)
+            linkedList.add(generateObj());
+        }
+        endTime = System.nanoTime();
+        elapsedTime = ((double)endTime - startTime)/1000000000;
+        System.out.println("Elapsed time for LinkedList: " + elapsedTime + " seconds.");
     }
 }
 
