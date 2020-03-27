@@ -63,12 +63,12 @@ public class Main {
         List<User> linkedList = new LinkedList<User>();
 
         Long startTime = System.nanoTime();
-        for(int i = 0; i < 10000000; i++) { // 10 млн элементов (добавление + генерация)
+        /*for(int i = 0; i < 10000000; i++) { // 10 млн элементов (добавление + генерация)
             arrayList.add(generateObj());
-        }
+        }*/
         Long endTime = System.nanoTime();
         Double elapsedTime = ((double)endTime - startTime)/1000000000;
-        System.out.println("Elapsed time for ArrayList: " + elapsedTime + " seconds.");
+        //System.out.println("Elapsed time for ArrayList: " + elapsedTime + " seconds.");
 
         startTime = System.nanoTime();
         for(int i = 0; i < 10000000; i++) { // 10 млн элементов (добавление + генерация)
@@ -77,6 +77,7 @@ public class Main {
         endTime = System.nanoTime();
         elapsedTime = ((double)endTime - startTime)/1000000000;
         System.out.println("Elapsed time for LinkedList: " + elapsedTime + " seconds.");
+        while(true) { }
     }
 }
 
