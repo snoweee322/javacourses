@@ -1,8 +1,22 @@
+package ru.sibsutis;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+class Generic { // simple
+
+    public <T extends Number> double add (T one, T two) {
+        return one.doubleValue() + two.doubleValue();
+    }
+
+    public <T extends Number> double multiply (T one, T two) {
+        return one.doubleValue() * two.doubleValue();
+    }
+}
+
 class Calculator{
     public static void main(String[] args) {
+        Generic gen = new Generic();
         Double number1 = 0.0;
         Double number2 = 0.0;
         Character expression = 'x';
@@ -13,8 +27,7 @@ class Calculator{
             Double result;
             switch(expression) {
                 case ('+'):
-                    result = number1 + number2;
-                    System.out.println("Result = " + result);
+                    System.out.println("Result = " + gen.add(number1, number2));
                     break;
                 case ('-'):
                     result = number1 - number2;
@@ -26,7 +39,7 @@ class Calculator{
                     break;
                 case ('*'):
                     result = number1 * number2;
-                    System.out.println("Result = " + result);
+                    System.out.println("Result = " + gen.multiply(number1, number2));
                     break;
                 default:
                     System.out.println("Error");
