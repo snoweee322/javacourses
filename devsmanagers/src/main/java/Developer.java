@@ -9,8 +9,8 @@ class Developer extends User implements CSV {
     private Integer counter;
     private String str;
 
-    public Developer(String name, String email, String language) {
-        super(name, email);
+    public Developer(String name, String email, String language, Integer KPI) {
+        super(name, email, KPI);
         this.language = language;
     }
     protected String getLanguage() {
@@ -20,7 +20,7 @@ class Developer extends User implements CSV {
     @Override
     public void toCSV() throws IOException {
         FileWriter fw = new FileWriter("devs.csv", true);
-        str = (String.join(";", this.getName(), this.getEmail(),
+        str = (String.join(";", this.getName(), this.getEmail(),  this.getKPI().toString(),
                 this.getLanguage(), "\n"));
         fw.write(str);
         fw.close();

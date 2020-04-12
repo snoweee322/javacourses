@@ -9,8 +9,8 @@ class Manager extends User implements CSV {
     private Integer counter;
     private String str;
 
-    public Manager(String name, String email, String type) {
-        super(name, email);
+    public Manager(String name, String email, String type, Integer KPI) {
+        super(name, email, KPI);
         this.type = type;
     }
 
@@ -21,7 +21,7 @@ class Manager extends User implements CSV {
     @Override
     public void toCSV() throws IOException {
         FileWriter fw = new FileWriter("managers.csv", true);
-        str = (String.join(";", this.getName(), this.getEmail(),
+        str = (String.join(";", this.getName(), this.getEmail(), this.getKPI().toString(),
                 this.getType(), "\n"));
         fw.write(str);
         fw.close();
