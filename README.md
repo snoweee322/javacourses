@@ -8,3 +8,4 @@ Winter/Spring, 2020.
 4. devsmanagers - CSV-interface, KPI statistics realization using generic class, TreeSet testing, custom Comparator
 5. simpleserver - HTTP server with Threads
 6. threads - Comsumer/Producer (wait()/notify()), synchronize and ReentrantLock test
+7. DB_1 - Database project with INSERT time test
