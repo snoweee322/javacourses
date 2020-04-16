@@ -9,3 +9,4 @@ Winter/Spring, 2020.
 5. simpleserver - HTTP server with Threads
 6. threads - Comsumer/Producer (wait()/notify()), synchronize and ReentrantLock test
 7. DB_1 - Database project with INSERT time test
+8. Runnable_with_lambda - Testing lamba-function
