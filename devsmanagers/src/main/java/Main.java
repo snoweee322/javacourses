@@ -133,7 +133,7 @@ public class Main {
         // StreamAPI
         List<User> array = new ArrayList<User>();
         array.add(new Developer("Carl Johnson", "1", "1", 1));
-        array.add(new Developer("Big Smoke", "1", "1", 50));
+        array.add(new Developer("Big Smoke", "1", "1", 52));
         array.add(new Developer("Officer Tenpenny", "1", "1", 99));
 
         //System.out.println("Min KPI: " + streamFromCollection.sorted((o1, o2) -> o1.getKPI().compareTo(o2.getKPI())).findFirst().get().getKPI());
@@ -142,7 +142,7 @@ public class Main {
 
         Double average = array.stream().mapToInt(User::getKPI).average().getAsDouble(); // подсчёт avg и нахождение объекта
         System.out.println("Average KPI (Stream API): " + array.stream()
-                .min((f1, f2) -> Math.abs(f1.getKPI() - 42) - Math.abs(f2.getKPI() - 42))
+                .min((f1, f2) -> (int) (Math.abs(f1.getKPI() - average) - Math.abs(f2.getKPI() - average)))
                 .get()
                 .getKPI()
         );
