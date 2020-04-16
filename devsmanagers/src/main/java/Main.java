@@ -129,6 +129,24 @@ public class Main {
             System.out.println("Time: " + accum / 100000 + "seconds");
             toFind += 100_000;
         }
+
+        // StreamAPI
+        List<User> array = new ArrayList<User>();
+        array.add(new Developer("Carl Johnson", "1", "1", 1));
+        array.add(new Developer("Big Smoke", "1", "1", 50));
+        array.add(new Developer("Officer Tenpenny", "1", "1", 99));
+
+        //System.out.println("Min KPI: " + streamFromCollection.sorted((o1, o2) -> o1.getKPI().compareTo(o2.getKPI())).findFirst().get().getKPI());
+        System.out.println("\nMin KPI (Stream API): " + array.stream().min(Comparator.comparing(User::getKPI)).get().getKPI());
+        System.out.println("Max KPI (Stream API): " + array.stream().max(Comparator.comparing(User::getKPI)).get().getKPI());
+
+        Double average = array.stream().mapToInt(User::getKPI).average().getAsDouble(); // подсчёт avg и нахождение объекта
+        System.out.println("Average KPI (Stream API): " + array.stream()
+                .min((f1, f2) -> Math.abs(f1.getKPI() - 42) - Math.abs(f2.getKPI() - 42))
+                .get()
+                .getKPI()
+        );
+
     }
 }
 
