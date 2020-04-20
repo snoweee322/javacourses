@@ -11,3 +11,4 @@ Winter/Spring, 2020.
 6. threads - Comsumer/Producer (wait()/notify()), synchronize and ReentrantLock test
 7. DB_1 - Database project with INSERT time test
 8. Runnable_with_lambda - Testing lamba-function
+10. Hibernate - REST API server with Hibernate (readme.txt)
