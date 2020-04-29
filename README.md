@@ -12,3 +12,4 @@ Winter/Spring, 2020.
 7. DB_1 - Database project with INSERT time test
 8. Runnable_with_lambda - Testing lamba-function
 10. Hibernate - REST API server with Hibernate (readme.txt)
+11. JavaFX_Notes - "Notes" program with JavaFX GUI and JSON storage.
